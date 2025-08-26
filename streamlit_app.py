@@ -118,6 +118,7 @@ class EnhancedLTVModel:
             "E-commerce": {"ltv_cac_min": 2.5, "payback_max": 6, "churn_typical": 15},
             "Marketplace": {"ltv_cac_min": 2.0, "payback_max": 8, "churn_typical": 12},
             "Fintech": {"ltv_cac_min": 4.0, "payback_max": 18, "churn_typical": 8},
+            "Услуги (салоны, фитнес, обучение)": {"ltv_cac_min": 2.0, "payback_max": 9, "churn_typical": 20,},
         }
     
     def validate_inputs(self, params):
