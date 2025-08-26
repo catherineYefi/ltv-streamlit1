@@ -58,18 +58,20 @@ ENHANCED_KPI_CSS = f"""
   border:2px solid {ULTIMA_GRAY};
   border-radius:16px; padding:20px; text-align:center;
   transition: all 0.3s ease; position: relative; overflow: hidden;
+  color:#fff;
 }}
 .kpi-card::before {{
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
   background: var(--accent-color, {ULTIMA_GOLD});
 }}
-.kpi-label {{ color:#9aa0a6; font-size:13px; font-weight:500; margin-bottom:8px; }}
+.kpi-label {{ color:#fff; font-size:13px; font-weight:500; margin-bottom:8px; }}
 .kpi-value {{ font-size:24px; font-weight:800; margin:8px 0; }}
 .kpi-change {{ font-size:11px; opacity:0.8; margin-top:4px; }}
-.kpi-good    {{ --accent-color: {ULTIMA_SUCCESS}; }} .kpi-good .kpi-value {{ color:{ULTIMA_SUCCESS}; }}
-.kpi-warn    {{ --accent-color: {ULTIMA_WARNING}; }} .kpi-warn .kpi-value {{ color:{ULTIMA_WARNING}; }}
-.kpi-bad     {{ --accent-color: {ULTIMA_ERROR}; }} .kpi-bad .kpi-value {{ color:{ULTIMA_ERROR}; }}
-.kpi-neutral {{ --accent-color: {ULTIMA_INFO}; }} .kpi-neutral .kpi-value {{ color:{ULTIMA_INFO}; }}
+.kpi-good    {{ --accent-color: {ULTIMA_SUCCESS}; }}
+.kpi-warn    {{ --accent-color: {ULTIMA_WARNING}; }}
+.kpi-bad     {{ --accent-color: {ULTIMA_ERROR}; }}
+.kpi-neutral {{ --accent-color: {ULTIMA_INFO}; }}
+
 .insights-panel {{
   background:{ULTIMA_DARK}; border:1px solid {ULTIMA_GRAY}; border-radius:12px;
   padding:16px; margin:12px 0;
@@ -85,6 +87,7 @@ ENHANCED_KPI_CSS = f"""
 .insight-item:last-child {{ border-bottom:none; }}
 .insight-icon {{ font-size:20px; }}
 .insight-text {{ flex:1; font-size:14px; line-height:1.4; color: #fff !important; }}
+
 .warning-panel {{
   color: #fff !important;
   background: #2a2a1a;
@@ -487,17 +490,23 @@ with gr.Blocks(
             with gr.Accordion("📚 Методология расчета", open=False):
                 gr.Markdown("""
                 ### Формула расчета LTV
+
                 **LTV = Σ(Monthly Margin × Survival Rate × Discount Factor)**
+
                 Где:
                 - **Monthly Margin** = (Средний чек × Покупок в год / 12) × Маржинальность
                 - **Survival Rate** = (1 - Monthly Churn)^(месяц-1)
                 - **Discount Factor** = (1 + Discount Rate)^(-месяц/12)
+
                 ### Ключевые метрики
+
                 - **LTV/CAC ≥ 3.0** — минимальный порог эффективности
                 - **Payback ≤ 12 мес** — желаемый срок окупаемости для большинства бизнесов
                 - **Monthly Churn < 10%** — здоровый уровень оттока
                 - **Customer Lifetime** = 1 / Monthly Churn Rate
+
                 ### Сценарное моделирование
+
                 - **Пессимистичный**: +50% оттока, -20% маржи, -10% среднего чека
                 - **Оптимистичный**: -30% оттока, +20% маржи, +10% среднего чека
                 """)
