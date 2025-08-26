@@ -463,7 +463,7 @@ with gr.Blocks(
                 )
                 industry = gr.Dropdown(
                     label="🏢 Отрасль (для бенчмарков)",
-                    choices=["SaaS", "E-commerce", "Marketplace", "Fintech"], value="SaaS",
+                    choices=list(model.industry_benchmarks.keys()), value="SaaS",
                     info="Отрасль для сравнения с типичными показателями"
                 )
             calculate_btn = gr.Button("🚀 Рассчитать LTV", variant="primary", size="lg")
