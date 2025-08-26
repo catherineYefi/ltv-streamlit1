@@ -64,9 +64,9 @@ ENHANCED_KPI_CSS = f"""
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
   background: var(--accent-color, {ULTIMA_GOLD});
 }}
-.kpi-label {{ color:#fff; font-size:13px; font-weight:500; margin-bottom:8px; }}
-.kpi-value {{ font-size:24px; font-weight:800; margin:8px 0; }}
-.kpi-change {{ font-size:11px; opacity:0.8; margin-top:4px; }}
+.kpi-label {{ color:#fff !important; font-size:13px; font-weight:500; margin-bottom:8px; }}
+.kpi-value {{ color:#fff !important; font-size:24px; font-weight:800; margin:8px 0; }}
+.kpi-change {{ color:#fff !important; font-size:11px; opacity:0.8; margin-top:4px; }}
 .kpi-good    {{ --accent-color: {ULTIMA_SUCCESS}; }}
 .kpi-warn    {{ --accent-color: {ULTIMA_WARNING}; }}
 .kpi-bad     {{ --accent-color: {ULTIMA_ERROR}; }}
